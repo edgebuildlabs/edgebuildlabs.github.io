@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edge Build Labs — software construido por IA, bajo un contrato que la obliga a probar lo que hizo</title>
+<meta name="description" content="Una persona, una flota de agentes de IA, y una disciplina: toda afirmación de estado lleva fuente y fecha, o las palabras NO VERIFICADO.">
+<meta property="og:title" content="Edge Build Labs">
+<meta property="og:description" content="Software construido por IA, bajo un contrato que la obliga a probar lo que hizo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edgebuildlabs.tech/es/">
+<link rel="canonical" href="https://edgebuildlabs.tech/es/">
+<link rel="alternate" hreflang="en" href="https://edgebuildlabs.tech/">
+<link rel="alternate" hreflang="pt" href="https://edgebuildlabs.tech/pt/">
+<link rel="alternate" hreflang="es" href="https://edgebuildlabs.tech/es/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1 class="brand">Edge Build<span>&nbsp;Labs</span></h1>
+    <p class="tagline">Software construido por agentes de IA, bajo un contrato que los obliga a probar lo que hicieron en vez de solo afirmarlo.</p>
+    <nav class="lang">
+      <a href="/">EN</a><span class="sep">·</span><a href="/pt/">PT</a><span class="sep">·</span><strong>ES</strong>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>Qué es esto</h2>
+    <p class="lead">Una persona, una flota de agentes de IA en un único servidor, y una disciplina que termina pesando más que cualquier herramienta.</p>
+    <p>El agente dice que terminó. La prueba nunca se ejecutó, el archivo nunca se escribió, el servicio no está en línea. La afirmación salió del contexto, no de la máquina — y un informe seguro es idéntico a uno verdadero hasta que alguien pide el comprobante.</p>
+    <p>Eso no es un defecto del modelo que se arregle pidiéndolo con más amabilidad. Es un contrato que falta.</p>
+  </section>
+
+  <section>
+    <h2>La regla</h2>
+    <blockquote class="rule">
+      <p><strong>Toda afirmación de estado lleva fuente y fecha — o las palabras NO VERIFICADO.</strong></p>
+    </blockquote>
+    <p>Una afirmación de estado es cualquier frase que diga que algo <em>es</em> o <em>fue</em> el caso. La marca viaja pegada a ella: <code>ruta:línea (fecha)</code>, <code>comando (ahora)</code>, <code>URL (fecha)</code> — o <strong>NO VERIFICADO</strong>, con el motivo en media línea. La opinión y el razonamiento no llevan nada: se ve que no son hechos.</p>
+    <p>Parece trivial. No lo es. Obliga a separar memoria de observación justo en el momento en que separarlas cambia el resultado: mientras se escribe la frase.</p>
+    <div class="ladder"><b>EMPEZÓ</b> &nbsp;!=&nbsp; <b>TERMINÓ</b> &nbsp;!=&nbsp; <b>VALIDADO</b> &nbsp;!=&nbsp; <b>APROBADO</b></div>
+    <p>Un proceso vivo, un código de salida cero y la palabra &ldquo;listo&rdquo; están todos antes de aprobado. Que las pruebas pasen no es validación — es evidencia de que el código hace lo que dice la prueba, una afirmación mucho menor que la que suele deducirse de ahí.</p>
+  </section>
+
+  <section>
+    <h2>Qué construyó</h2>
+    <p><a href="https://livingworld.edgebuildlabs.tech/">Living World</a> es un shard de Ultima Online sobre ModernUO, funcionando en un solo VPS desde el 5 de septiembre de 2026. Es un servidor de juego, y también la prueba de carga del método.</p>
+    <ul class="facts">
+      <li>Podman rootless, con un Quadlet de systemd como único camino de recreación</li>
+      <li><code>--read-only</code>, <code>--cap-drop=all</code>, <code>--security-opt=no-new-privileges</code>, espacio de usuario sin root</li>
+      <li>imagen fijada por digest, no por etiqueta</li>
+      <li>respaldo diario con una restauración que se ejecutó de verdad, no que se supuso</li>
+      <li>un rastro de evidencia fechado y un registro de decisiones solo-append detrás de cada una de esas elecciones</li>
+    </ul>
+    <p>Nada de esa configuración se escribió a mano. La contribución humana entera fue preguntar <em>&ldquo;¿eso lo verificaste o lo estás deduciendo?&rdquo;</em> hasta que quedó solo lo verificado.</p>
+    <p class="quiet">El shard casi no tiene jugadores, y no es para eso que existe. Un servidor en línea es algo que un desconocido conecta y comprueba por su cuenta — vale más que cualquier captura de pantalla.</p>
+  </section>
+
+  <section>
+    <h2>Los contratos, gratis</h2>
+    <p>Los archivos que imponen todo esto son de dominio público. Son tres, sin dependencias y sin instalación. Copia uno dentro de tu repositorio y el agente empieza a decirte qué ejecutó, cuándo, y qué respondió.</p>
+    <p><a href="https://github.com/edgebuildlabs/evidence-contracts"><strong>github.com/edgebuildlabs/evidence-contracts</strong></a></p>
+    <p class="quiet">Dominio público, CC0. Cópialo, cámbialo, publícalo, no acredites a nadie. Si te evita un &ldquo;listo&rdquo; equivocado, ya se pagó solo.</p>
+  </section>
+
+  <section>
+    <h2>Contacto</h2>
+    <p>Edge Build Labs es una sola persona, a tiempo completo, en Brasil. Si ejecutas agentes sobre infraestructura real y quieres la misma disciplina aplicada a la tuya, abre un issue en el repositorio de los contratos. Ese es todo el canal — escrito, asíncrono, sin llamadas.</p>
+    <p><a href="https://github.com/edgebuildlabs/evidence-contracts/issues"><strong>github.com/edgebuildlabs/evidence-contracts/issues</strong></a></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Edge Build Labs · <a href="https://livingworld.edgebuildlabs.tech/">Living World</a> · <a href="https://github.com/edgebuildlabs/evidence-contracts">Evidence Contracts</a></p>
+    <p>HTML estático servido desde nuestro propio servidor. Sin JavaScript, sin rastreadores, sin cookies.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edge Build Labs — software built by AI, under a contract that makes it prove its work</title>
+<meta name="description" content="One person, a fleet of AI agents, and one discipline: every claim of state carries a source and a date, or the words NOT VERIFIED.">
+<meta property="og:title" content="Edge Build Labs">
+<meta property="og:description" content="Software built by AI, under a contract that makes it prove its work.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edgebuildlabs.tech/">
+<link rel="canonical" href="https://edgebuildlabs.tech/">
+<link rel="alternate" hreflang="en" href="https://edgebuildlabs.tech/">
+<link rel="alternate" hreflang="pt" href="https://edgebuildlabs.tech/pt/">
+<link rel="alternate" hreflang="es" href="https://edgebuildlabs.tech/es/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1 class="brand">Edge Build<span>&nbsp;Labs</span></h1>
+    <p class="tagline">Software built by AI agents, under a contract that makes them prove their work instead of claiming it.</p>
+    <nav class="lang">
+      <strong>EN</strong><span class="sep">·</span><a href="/pt/">PT</a><span class="sep">·</span><a href="/es/">ES</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>What this is</h2>
+    <p class="lead">One person, a fleet of AI agents on a single server, and one discipline that turns out to matter more than any of the tooling.</p>
+    <p>An agent will tell you it is done. The tests never ran, the file was never written, the service is not up. The claim was generated from context, not read off the machine — and a confident report looks exactly like a true one until somebody asks for the receipt.</p>
+    <p>That is not a model defect you can prompt away. It is a missing contract.</p>
+  </section>
+
+  <section>
+    <h2>The rule</h2>
+    <blockquote class="rule">
+      <p><strong>Every claim of state carries a source and a date — or the words NOT VERIFIED.</strong></p>
+    </blockquote>
+    <p>A claim of state is any sentence saying something <em>is</em> or <em>was</em> the case. The mark travels attached to it: <code>path:line (date)</code>, <code>command (now)</code>, <code>URL (date)</code> — or <strong>NOT VERIFIED</strong>, with half a line saying why. Opinion and reasoning carry nothing; they are visibly not facts.</p>
+    <p>It sounds trivial. It is not. It forces the distinction between memory and observation at the one moment where noticing it changes the outcome: while the sentence is being written.</p>
+    <div class="ladder"><b>STARTED</b> &nbsp;!=&nbsp; <b>COMPLETED</b> &nbsp;!=&nbsp; <b>VALIDATED</b> &nbsp;!=&nbsp; <b>PASS</b></div>
+    <p>A live process, an exit code of zero and the word &ldquo;done&rdquo; all sit upstream of PASS. Tests passing is not validation — it is evidence that the code does what the test says, which is a much smaller claim than the one usually made from it.</p>
+  </section>
+
+  <section>
+    <h2>What it built</h2>
+    <p><a href="https://livingworld.edgebuildlabs.tech/">Living World</a> is an Ultima Online shard on ModernUO, running on one VPS since 5 September 2026. It is a game server, and it is also the load test for the method.</p>
+    <ul class="facts">
+      <li>rootless Podman, with a systemd Quadlet as the single recreation path</li>
+      <li><code>--read-only</code>, <code>--cap-drop=all</code>, <code>--security-opt=no-new-privileges</code>, non-root user namespace</li>
+      <li>image pinned by digest, not by tag</li>
+      <li>daily backup with a restore that was actually performed, not assumed</li>
+      <li>a dated evidence trail and an append-only decision ledger behind every one of those choices</li>
+    </ul>
+    <p>None of that configuration was written by hand. The entire human contribution was asking <em>&ldquo;did you verify that, or are you inferring it?&rdquo;</em> until only the verified part was left.</p>
+    <p class="quiet">The shard has almost no players, and that is not the point of it. A running server is something a stranger can connect to and check for themselves, which is worth more than any screenshot.</p>
+  </section>
+
+  <section>
+    <h2>The contracts, free</h2>
+    <p>The files that enforce all of this are public domain — three of them, no dependencies and no install. Copy one into your repository and your agent starts telling you what it ran, when, and what came back.</p>
+    <p><a href="https://github.com/edgebuildlabs/evidence-contracts"><strong>github.com/edgebuildlabs/evidence-contracts</strong></a></p>
+    <p class="quiet">Public domain under CC0. Copy it, change it, ship it, credit nobody. If it saves you one wrong &ldquo;done&rdquo;, it paid for itself.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Edge Build Labs is one person, working full time, in Brazil. If you are running agents on real infrastructure and want the same discipline applied to yours, open an issue on the contracts repository. That is the whole channel — written, asynchronous, no calls.</p>
+    <p><a href="https://github.com/edgebuildlabs/evidence-contracts/issues"><strong>github.com/edgebuildlabs/evidence-contracts/issues</strong></a></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Edge Build Labs · <a href="https://livingworld.edgebuildlabs.tech/">Living World</a> · <a href="https://github.com/edgebuildlabs/evidence-contracts">Evidence Contracts</a></p>
+    <p>Static HTML served from our own server. No JavaScript, no trackers, no cookies.</p>
+  </div>
+</footer>
+
+</body>
+</html>

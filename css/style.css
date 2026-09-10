@@ -1,0 +1,193 @@
+/* Edge Build Labs — one stylesheet, no JavaScript, no build, no CDN. */
+
+:root {
+  --bg:        #fbfaf7;
+  --bg-panel:  #f3f1ec;
+  --ink:       #1c1a17;
+  --ink-soft:  #55504a;
+  --ink-faint: #8a837a;
+  --rule:      #ddd8cf;
+  --accent:    #7a5c2e;
+  --accent-ink:#5d4522;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #14130f;
+    --bg-panel:  #1d1b16;
+    --ink:       #ece7dd;
+    --ink-soft:  #b3aca0;
+    --ink-faint: #7e776c;
+    --rule:      #33302a;
+    --accent:    #d7b174;
+    --accent-ink:#e6c68f;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.wrap {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.4rem;
+}
+
+/* ---------- header ---------- */
+
+header {
+  border-bottom: 1px solid var(--rule);
+  padding: 3.2rem 0 2.2rem;
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+
+.brand span { color: var(--accent-ink); }
+
+.tagline {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+  max-width: 34rem;
+}
+
+nav.lang {
+  margin-top: 1.6rem;
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+nav.lang a { color: var(--ink-faint); text-decoration: none; }
+nav.lang a:hover { color: var(--accent-ink); text-decoration: underline; }
+nav.lang strong { color: var(--ink); font-weight: 600; }
+nav.lang .sep { opacity: 0.4; padding: 0 0.45rem; }
+
+/* ---------- sections ---------- */
+
+main { padding: 2.6rem 0 1rem; }
+
+section { margin: 0 0 2.9rem; }
+
+h2 {
+  font-family: var(--serif);
+  font-size: 1.28rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.7rem;
+}
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--accent-ink); }
+a:hover { text-decoration-thickness: 2px; }
+
+strong { font-weight: 640; }
+
+.lead { font-size: 1.06rem; }
+
+.quiet { color: var(--ink-soft); }
+
+/* ---------- the rule block ---------- */
+
+blockquote.rule {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.3rem;
+  background: var(--bg-panel);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+}
+
+blockquote.rule p { margin: 0; font-size: 1.03rem; }
+
+/* ---------- ladder ---------- */
+
+.ladder {
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.85rem 1rem;
+  margin: 1.2rem 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
+
+.ladder b { color: var(--ink); font-weight: 600; }
+
+/* ---------- fact list ---------- */
+
+ul.facts {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+ul.facts li {
+  padding: 0.5rem 0 0.5rem 1.1rem;
+  border-top: 1px solid var(--rule);
+  position: relative;
+}
+
+ul.facts li:last-child { border-bottom: 1px solid var(--rule); }
+
+ul.facts li::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: var(--ink-faint);
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--bg-panel);
+  padding: 0.08em 0.34em;
+  border-radius: 3px;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 1.5rem;
+  padding: 1.8rem 0 3rem;
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+}
+
+footer a { color: var(--ink-soft); }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 30rem) {
+  body { font-size: 16px; }
+  header { padding-top: 2.4rem; }
+  .brand { font-size: 1.6rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a { transition: color 120ms ease; }
+}
