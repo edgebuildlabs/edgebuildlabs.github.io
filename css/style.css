@@ -1,6 +1,9 @@
-/* Edge Build Labs — one stylesheet, no JavaScript, no build, no CDN. */
+/* Edge Build Labs — one stylesheet, no build, no CDN.
+   Theme: light by default; dark when the visitor chose it (html[data-theme="dark"])
+   or, with no choice stored, when the system prefers dark. */
 
 :root {
+  color-scheme: light;
   --bg:        #fbfaf7;
   --bg-panel:  #f3f1ec;
   --ink:       #1c1a17;
@@ -9,13 +12,32 @@
   --rule:      #ddd8cf;
   --accent:    #7a5c2e;
   --accent-ink:#5d4522;
+  --icon-sun:  none;
+  --icon-moon: block;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
 }
 
+/* The dark set appears twice on purpose: once for the explicit choice, once for
+   the system preference when nothing was chosen. Keep both in sync. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:        #14130f;
+  --bg-panel:  #1d1b16;
+  --ink:       #ece7dd;
+  --ink-soft:  #b3aca0;
+  --ink-faint: #7e776c;
+  --rule:      #33302a;
+  --accent:    #d7b174;
+  --accent-ink:#e6c68f;
+  --icon-sun:  block;
+  --icon-moon: none;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg:        #14130f;
     --bg-panel:  #1d1b16;
     --ink:       #ece7dd;
@@ -24,6 +46,8 @@
     --rule:      #33302a;
     --accent:    #d7b174;
     --accent-ink:#e6c68f;
+    --icon-sun:  block;
+    --icon-moon: none;
   }
 }
 
@@ -71,6 +95,8 @@ header {
 }
 
 nav.lang {
+  display: flex;
+  align-items: center;
   margin-top: 1.6rem;
   font-size: 0.86rem;
   letter-spacing: 0.04em;
@@ -82,6 +108,43 @@ nav.lang a { color: var(--ink-faint); text-decoration: none; }
 nav.lang a:hover { color: var(--accent-ink); text-decoration: underline; }
 nav.lang strong { color: var(--ink); font-weight: 600; }
 nav.lang .sep { opacity: 0.4; padding: 0 0.45rem; }
+
+/* ---------- theme switch (shown only when the script is running) ---------- */
+
+.theme-toggle { display: none; }
+
+html.js .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-faint);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.theme-toggle:hover { color: var(--accent-ink); border-color: var(--accent); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.theme-toggle svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-toggle .sun  { display: var(--icon-sun); }
+.theme-toggle .moon { display: var(--icon-moon); }
 
 /* ---------- sections ---------- */
 
